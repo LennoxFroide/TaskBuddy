@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+<!--This jinja block represents the title of the page. Allows template inheritance-->
+{% block title %}
+    <title>
+        About Us - TaskMate
+    </title>
+{% endblock title %} 
+
+{% block content %}
+    <div class="container">
+        <h1>{{about_text}}</h1>
+    </div>
+{% endblock content %}

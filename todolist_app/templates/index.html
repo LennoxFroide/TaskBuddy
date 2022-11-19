@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<!--To use any static files like images, we need to first load static-->
+{% load static%}
+
+<!--This jinja block represents the title of the page. Allows template inheritance-->
+{% block title %}
+    <title>
+        Welcome TaskMate!
+    </title>
+{% endblock title %} 
+
+{% block content %}
+    <div class="container">
+        <h1>{{index_text}}</h1>
+        <!--Since we want 3 images on a row we need 3 column tags-->
+        <div class="row mt=5">
+            <div class="col-lg-4">
+                <img src="{% static '/image/mille-sanders-Bc6qPj_f-r0-unsplash.jpg'%}" class="rounded-lg shadow-sm" alt="Hour glass" width='360' height='240'>
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static '/image/computer.jpg'%}" class="rounded-lg shadow-sm" alt="Hour glass" width='360' height='240'>
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static '/image/glassball.jpg'%}" class="rounded-lg shadow-sm" alt="Hour glass" width='360' height='240'>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-10 offset-md-1">
+                <center><p class="h1 text-primary">Have any tasks that you need to organize</p></center>
+                <center><p class="h2 mt-3">Let your friendly task buddy TaskMate help out!</p></center>
+                <center><p class="h5">Say goodbye to the days when you used to forget your tasks</p></center>
+
+                <center><a href={% url 'todolist'%}><button type="button" class="rounded-lg shadow" class="btn btn-primary btn-lg">Let's get started</button></center>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}

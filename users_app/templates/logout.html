@@ -1,0 +1,20 @@
+Logout Page
+
+{% extends 'base.html' %}
+<!--Loading crispy forms-->
+{% load crispy_forms_tags%}
+<!--This jinja block represents the title of the page. Allows template inheritance-->
+{% block title %}
+    <title>
+        Logout - TaskMate
+    </title>
+{% endblock title %} 
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Logout Page</h2>
+        <br>
+        <h4>Logout successful - Thanks for using TaskBuddy!</h4>
+       
+    </div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<!--This jinja block represents the title of the page. Allows template inheritance-->
+{% block title %}
+    <title>
+        Edit - TaskMate
+    </title>
+{% endblock title %}
+    
+{% block content %}
+    <div class="container">
+
+        <!--<h1>{{task_obj.task}}</h1>-->
+        <!--Our form to take input from the user on the frontend. -->
+        <br>
+      {% if task_obj.manage == request.user %}
+      <form method = "POST" class = "row">
+        {% csrf_token %}
+        <label class="col-lg-4"> Task to update</label>
+        <input class="form-control col-lg-6" placeholder = "{{task_obj.task}}" value = "{{task_obj.task}}" name = "task">
+        <input type = "hidden" name = "done" value = "{{task_obj.done}}" >
+        <button type="submit" class="btn btn-primary col=lg-2">Update Task</button>
+      </form>
+      {% else %}
+        <h4>Access denied! This is not your task.</h4>
+      {% endif %}
+    </div>
+{% endblock content %}

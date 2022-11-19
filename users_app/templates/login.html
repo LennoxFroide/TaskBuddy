@@ -1,0 +1,37 @@
+Login Page!
+
+{% extends 'base.html' %}
+<!--Loading crispy forms-->
+{% load crispy_forms_tags%}
+<!--This jinja block represents the title of the page. Allows template inheritance-->
+{% block title %}
+    <title>
+        Login - TaskMate
+    </title>
+{% endblock title %} 
+
+{% block content %}
+    <div class="container mt-5">
+        <h2>Login Page</h2>
+        <br>
+        {% if messages %}
+            {%for message in messages%}
+                <div class="alert alert-dismissible fade show alert-success" role="alert">
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {%endfor%}
+        {% endif %}
+
+        <!--Creating the registration form-->
+        <form method="POST" class="mt-5 col-6">
+            <!--Since we're dealing with sensitive user info we need a security token which Django provides-->
+            {% csrf_token %}
+            <!--Bring in our form-->
+            {{form|crispy}}
+
+            <!--Adding a submit button-->
+            <button type="submit" class="btn btn-primary mb-5">Login</button>
+        </form>
+    </div>
+{% endblock content %}
